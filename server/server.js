@@ -11,8 +11,8 @@ const PORT = process.env.PORT;
 
 // middleware
 app.use(express.json());
-app.use("/api/auth", authRouter);
 app.use(cookieParser());
+app.use("/api/auth", authRouter);
 
 app.listen(PORT, () => {
   console.log("server running on port:", PORT);
