@@ -4,17 +4,11 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import { useAuthStore } from "./store/useAuthStore";
-<<<<<<< HEAD
 import { Loader } from "lucide-react";
 import Login from "./pages/Login";
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
-=======
-
-const App = () => {
-  const { authUser, checkAuth } = useAuthStore();
->>>>>>> 70c4d38093ad8fc48a962d497bb1405e532e9fef
 
   useEffect(() => {
     checkAuth();
@@ -22,7 +16,6 @@ const App = () => {
 
   console.log({ authUser });
 
-<<<<<<< HEAD
   if (isCheckingAuth && !authUser) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -31,8 +24,6 @@ const App = () => {
     );
   }
 
-=======
->>>>>>> 70c4d38093ad8fc48a962d497bb1405e532e9fef
   return (
     <div className="">
       <Navbar />
