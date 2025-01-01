@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
-import { MessageSquare } from "lucide-react";
+import { Eye, EyeOff, Mail, MessageSquare, User } from "lucide-react";
 
 const SignUp = () => {
   const { signup, isSigningUp } = useAuthStore();
@@ -40,19 +40,56 @@ const SignUp = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className=" form-control ">
               <label className="input input-bordered flex items-center gap-2">
-                <input type="text" className="grow" placeholder="Search" />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                  className="h-4 w-4 opacity-70"
+                <input
+                  type="text"
+                  value={formData.fullName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, fullName: e.target.value })
+                  }
+                  className="grow"
+                  placeholder="Full Name"
+                />
+                <User className="size-5 text-base-content/40" />
+              </label>
+            </div>
+
+            <div className=" form-control ">
+              <label className="input input-bordered flex items-center gap-2">
+                <input
+                  type="text"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  className="grow"
+                  placeholder="E-mail"
+                />
+                <Mail className="size-5 text-base-content/40" />
+              </label>
+            </div>
+
+            <div className="form-control">
+              <label className="input input-bordered flex items-center gap-2">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  className="grow"
+                  value={formData.password}
+                  onChange={(e) =>
+                    setFormData({ ...formData, password: e.target.value })
+                  }
+                  placeholder="••••••"
+                />
+                <button
+                  type={"button"}
+                  className="   flex items-center"
+                  onClick={() => setShowPassword((prev) => !prev)}
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                  {showPassword ? (
+                    <EyeOff className="size-5 text-base-content/40" />
+                  ) : (
+                    <Eye className="size-5 text-base-content/40" />
+                  )}
+                </button>
               </label>
             </div>
           </form>
