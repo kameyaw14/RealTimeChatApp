@@ -12,7 +12,10 @@
   "dependencies": {
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
+<<<<<<< HEAD
     "lucide-react": "^0.469.0",
+=======
+>>>>>>> 70c4d38093ad8fc48a962d497bb1405e532e9fef
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hot-toast": "^2.5.1",
