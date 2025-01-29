@@ -5,14 +5,15 @@ import bcrypt from "bcryptjs";
 import validator from "validator";
 
 const SignUp = async (req, res) => {
-  const { fullname, email, password } = req.body;
+  const { fullName, email, password } = req.body;
   try {
     //validate input fields
     let errArray = [];
 
-    if (!fullname) {
+    if (!fullName) {
       errArray.push("Enter your full name");
     }
+
     if (!email) {
       errArray.push("Enter your email");
     }
@@ -45,7 +46,7 @@ const SignUp = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const newUser = new User({
-      fullname,
+      fullName,
       email,
       password: hashedPassword,
     });
@@ -58,7 +59,7 @@ const SignUp = async (req, res) => {
       res.status(201).json({
         _id: newUser._id,
         email: newUser.email,
-        fullname: newUser.email,
+        fullname: newUser.fullName,
         profilePic: newUser.profilePic,
       });
     } else {
@@ -89,7 +90,7 @@ const LogIn = async (req, res) => {
 
     res.status(200).json({
       _id: user._id,
-      fullname: user.fullname,
+      fullname: user.fullName,
       email: user.email,
       profilePic: user.profilePic,
     });
@@ -138,7 +139,7 @@ const CheckAuth = (req, res) => {
   try {
     res.status(200).json(req.user);
   } catch (error) {
-    console.log("Error in logout controller", error.message);
+    console.log("Error in checkAuth controller", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };

@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp";
 import { useAuthStore } from "./store/useAuthStore";
 import { Loader } from "lucide-react";
 import Login from "./pages/Login";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
@@ -42,6 +43,7 @@ const App = () => {
           element={!authUser ? <Login /> : <Navigate to={"/"} />}
         />
       </Routes>
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };
