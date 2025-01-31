@@ -64,4 +64,6 @@ export const useAuthStore = create((set) => ({
       set({ isLoggingOut: false });
     }
   },
+
+  updateProfile: async (data) => {},
 }));

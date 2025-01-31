@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useAuthStore } from "../store/useAuthStore";
 import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare } from "lucide-react";
 import toast from "react-hot-toast";
+import AuthImagePattern from "../components/AuthImagePattern";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -113,8 +115,23 @@ const Login = () => {
               "Login"
             )}
           </button>
+
+          <div className="text-center">
+            <p className="text-base-content/60">
+              Don't have an account?{" "}
+              <Link to={"/signup"} className="link link-primary">
+                Sign up
+              </Link>
+            </p>
+          </div>
         </form>
       </div>
+
+      {/* RIGHT */}
+      <AuthImagePattern
+        title={"Join our community"}
+        subTitle={"Connect with friends, share moments, and more"}
+      />
     </div>
   );
 };
