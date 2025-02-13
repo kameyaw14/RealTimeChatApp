@@ -61,6 +61,7 @@ const SignUp = async (req, res) => {
         email: newUser.email,
         fullname: newUser.fullName,
         profilePic: newUser.profilePic,
+        createdAt: newUser.createdAt,
       });
     } else {
       res.status(400).json({ message: "Invalid user data" });
@@ -90,9 +91,10 @@ const LogIn = async (req, res) => {
 
     res.status(200).json({
       _id: user._id,
-      fullname: user.fullName,
+      fullName: user.fullName,
       email: user.email,
       profilePic: user.profilePic,
+      createdAt: user.createdAt,
     });
   } catch (error) {
     console.log("Error in login controller", error.message);
